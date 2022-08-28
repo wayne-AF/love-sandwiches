@@ -1,6 +1,6 @@
+from pprint import pprint
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 
 
 SCOPE = [
@@ -51,8 +51,8 @@ def validate_data(values):
             raise ValueError(
                 f"Exactly 6 values required, you provided {len(values)}"
             )
-    except ValueError as e:
-        print(f"Invalid data: {e}, please try again.\n")
+    except ValueError as e_e:
+        print(f"Invalid data: {e_e}, please try again.\n")
         return False
 
     return True
@@ -88,6 +88,22 @@ def calculate_surplus_data(sales_row):
     return surplus_data
 
 
+def get_last_5_entries_sales():
+    """
+    Collects columns of data from sales worksheet, collecting the last
+    five entries for each sandwich and returns the data as a list of lists.
+    """
+    sales = SHEET.worksheet("sales")
+    # column = sales.col_values(3)
+    # print(column)
+
+    columns = []
+    for col in range(1, 7):
+        column = sales.col_values(col)
+        columns.append(column[-5:])
+    pprint(columns)
+
+
 def main():
     """
     Run all program functions
@@ -99,5 +115,8 @@ def main():
     new_surplus_data = calculate_surplus_data(sales_data)
     update_worksheet(new_surplus_data, "surplus")
 
+
 print("Welcome to Love Sandwiches Data Automation\n")
-main()
+# main()
+
+get_last_5_entries_sales()
