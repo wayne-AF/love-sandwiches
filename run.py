@@ -1,5 +1,3 @@
-from pprint import pprint
-import math
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -28,7 +26,7 @@ def get_sales_data():
         print("Data should be six numbers, separated by a comma.")
         print("Example: 10,20,30,40,50,60\n")
 
-        data_str = input("Enter your data here: ")
+        data_str = input("Enter your data here:\n")
 
         sales_data = data_str.split(",")
 
@@ -80,7 +78,7 @@ def calculate_surplus_data(sales_row):
     print("Calculating surplus data...\n")
     stock = SHEET.worksheet("stock").get_all_values()
     stock_row = [int(num) for num in stock[-1]]
-    
+
     surplus_data = []
     for stock, sales in zip(stock_row, sales_row):
         surplus = stock - sales
@@ -95,12 +93,12 @@ def get_last_5_entries_sales():
     five entries for each sandwich and returns the data as a list of lists.
     """
     sales = SHEET.worksheet("sales")
-    
+
     columns = []
     for col in range(1, 7):
         column = sales.col_values(col)
         columns.append(column[-5:])
-    
+
     return columns
 
 
