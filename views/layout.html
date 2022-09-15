@@ -10,16 +10,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xterm/3.14.5/addons/attach/attach.js"></script>
     <title>Feline Pine Cat Retirement Home</title>
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
         
         html {
         background-color: black;
         }  
 
         body {
-            font-family: Arial;
+            font-family: 'Courier Prime', monospace;
+            color: white;
             margin: 0 auto;
         }
 
+        #main-content {
+        display: contents;
+        position: relative;
+        text-align: center;
+        }
         /**
         * Default styles for xterm.js
         */
@@ -166,11 +173,17 @@
             text-decoration: underline;
         }
 
+        button:hover {
+            background-color: white;
+            color: black;
+        }
+        
         button {
             width: 150px;
-            height: 80px;
-            background-color: #E84610;
-            border: 1px solid grey;
+            height: 35px;
+            font-family: 'Courier Prime', monospace;
+            background-color: black;
+            border: 1px solid white;
             color: white;
             text-transform: uppercase;
             margin: 10px;
