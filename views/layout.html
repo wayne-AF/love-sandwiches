@@ -11,17 +11,24 @@
     <title>Feline Pine Cat Retirement Home</title>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
-        
+
         html {
         background-color: black;
-        }  
-
+        }    
+        
         body {
-            font-family: 'Courier Prime', monospace;
+            font-family: Arial;
             color: white;
             margin: 0 auto;
             max-width: 50rem;
             height: 100vh;
+        }
+
+        header {
+            font-family: 'Courier Prime', monospace;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         #main-content {
@@ -33,10 +40,6 @@
         * Default styles for xterm.js
         */
 
-        header {
-            margin-left: auto;
-            margin-right: auto;
-        }
         .xterm {
             font-feature-settings: "liga"0;
             position: relative;
@@ -63,7 +66,8 @@
         .xterm .xterm-helper-textarea {
             padding: 0;
             border: 0;
-            margin: auto;
+            margin-left: auto;
+            margin-right: auto;
             /* Move textarea out of the screen to the far left, so that the cursor is not visible */
             /* position: absolute; */
             opacity: 0;
@@ -73,9 +77,9 @@
             height: 0;
             z-index: -5;
             /** Prevent wrapping so the IME appears against the textarea at the correct position */
-            /* white-space: nowrap;
+            white-space: nowrap;
             overflow: hidden;
-            resize: none; */
+            resize: none;
         }
 
         .xterm .composition-view {
@@ -95,7 +99,7 @@
         .xterm .xterm-viewport {
             /* On OS X this is required in order for the scroll bar to appear fully opaque */
             background-color: #000;
-            overflow-y: scroll;
+            overflow-y: auto;
             cursor: default;
             position: absolute;
             right: 0;
